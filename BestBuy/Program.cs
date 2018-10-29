@@ -73,21 +73,25 @@ namespace InClassSandbox
                 string response2 = Console.ReadLine();
                 int prodResponse = int.Parse(response2);
 
-                var product = new Product()
-                {
-                    ProductId = prodResponse
-                };
 
                 Console.WriteLine("What would you like to update about this item?");
-                Console.WriteLine(product.ProductId); Console.Write(product.Name); Console.Write(product.Price); Console.Write(product.CategoryId);
                 string response3 = Console.ReadLine();
 
                 if(response3.ToUpper() == "NAME")
                 {
                     Console.WriteLine("Please give it a new name:");
                     string nameResponse = Console.ReadLine();
-                    nameResponse = product.Name;
-                    Console.WriteLine("Name has been changed!");
+                    Console.WriteLine("Please give this item a price (if it is the same price, type the same price)");
+                    string priceResponse = Console.ReadLine();
+                    decimal price = decimal.Parse(priceResponse);
+                    var product = new Product()
+                    {
+                        ProductId = prodResponse,
+                        Name = nameResponse,
+                        Price = price
+                    };
+                    thing.UpdateProduct(product);
+                    Console.WriteLine("Product has been formatted!");
                 }
 
                 if(response3.ToUpper() == "PRICE")
@@ -95,8 +99,16 @@ namespace InClassSandbox
                     Console.WriteLine("Please give it a new price:");
                     string priceResponse = Console.ReadLine();
                     decimal price = decimal.Parse(priceResponse);
-                    price = product.Price;
-                    Console.WriteLine("Price has been changed!");
+                    Console.WriteLine("Please give it a new name (if it is the same name, retype the name)");
+                    string name = Console.ReadLine();
+                    var product = new Product()
+                    {
+                        ProductId = prodResponse,
+                        Name = name,
+                        Price = price
+                    };
+                    thing.UpdateProduct(product);
+                    Console.WriteLine("Product has been formatted!");
                     Console.ReadLine();
                 }
 
@@ -105,7 +117,20 @@ namespace InClassSandbox
                     Console.WriteLine("Please give it a new category ID:");
                     string catResponse = Console.ReadLine();
                     int catID = int.Parse(catResponse);
-                    catID = product.CategoryId;
+                    Console.WriteLine("Please retype the name of the product");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Please retype the price of the product");
+                    string priceResponse = Console.ReadLine();
+                    decimal price = decimal.Parse(priceResponse);
+                    var product = new Product()
+                    {
+                        ProductId = prodResponse,
+                        Name = name,
+                        Price = price
+                    };
+                    thing.UpdateProduct(product);
+                    Console.WriteLine("Product has been formatted!");
+                    Console.ReadLine();
                 }
 
                 if(response3.ToUpper() == "PRODUCTID")
