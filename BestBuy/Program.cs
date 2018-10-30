@@ -14,8 +14,8 @@ namespace InClassSandbox
         
         public static void Main(string[] args)
         {
-            BestBuyShowing();
-            BestBuyAdding();
+            //BestBuyShowing();
+            //BestBuyAdding();
             BestBuyUpdating();
             BestBuyDeleting();
         }
@@ -114,22 +114,23 @@ namespace InClassSandbox
 
                 if(response3.ToUpper() == "CATEGORYID")
                 {
-                    Console.WriteLine("Please give it a new category ID:");
+                    Console.WriteLine("Please type the new category id:");
                     string catResponse = Console.ReadLine();
                     int catID = int.Parse(catResponse);
-                    Console.WriteLine("Please retype the name of the product");
+                    Console.WriteLine("Please give it a new name (if it is the same name, retype the name)");
                     string name = Console.ReadLine();
-                    Console.WriteLine("Please retype the price of the product");
+                    Console.WriteLine("Please give this item a price (if it is the same price, type the same price)");
                     string priceResponse = Console.ReadLine();
                     decimal price = decimal.Parse(priceResponse);
                     var product = new Product()
                     {
                         ProductId = prodResponse,
                         Name = name,
-                        Price = price
+                        Price = price,
+                        CategoryId = catID
                     };
                     thing.UpdateProduct(product);
-                    Console.WriteLine("Product has been formatted!");
+                    Console.WriteLine();
                     Console.ReadLine();
                 }
 

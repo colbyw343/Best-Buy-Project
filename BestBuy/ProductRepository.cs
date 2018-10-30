@@ -78,10 +78,9 @@ namespace InClassSandbox
             {
                 conn.Open();
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = "UPDATE products SET Name = @n, Price = @p, CategoryID = @cID;";
+                cmd.CommandText = "UPDATE products SET Name = @n, Price = @p WHERE ProductId = @pID;";
                 cmd.Parameters.AddWithValue("n", prod.Name);
                 cmd.Parameters.AddWithValue("p", prod.Price);
-                cmd.Parameters.AddWithValue("cID", prod.CategoryId);
                 cmd.Parameters.AddWithValue("pID", prod.ProductId);
                 cmd.ExecuteNonQuery();
             }
