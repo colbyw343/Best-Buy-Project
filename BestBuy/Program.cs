@@ -14,8 +14,8 @@ namespace InClassSandbox
         
         public static void Main(string[] args)
         {
-            //BestBuyShowing();
-            //BestBuyAdding();
+            BestBuyShowing();
+            BestBuyAdding();
             BestBuyUpdating();
             BestBuyDeleting();
         }
